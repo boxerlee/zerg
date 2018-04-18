@@ -36,5 +36,12 @@
 //// 注册路由到index模块的News控制器的read操作
 //Route::rule('new/:id','index/News/read');
 
+//GET,POST,DELETE,PUT,*
+
+
 use think\Route;
-Route::rule('hello','sample\Test\hello','POST|GET');
+//Route::rule('hello','sample/Test/hello','GET',['https'=> TRUE]);
+//Route::rule('hello','sample/Test/hello','GET|POST');
+
+Route::get('hello','sample/Test/hello');
+Route::get('banner/:id','api/v1.Banner/getBanner');
