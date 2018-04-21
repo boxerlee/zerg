@@ -9,6 +9,7 @@
 namespace app\api\controller\v1;
 
 
+use app\api\validate\TestValidate;
 use think\Validate;
 
 class Banner
@@ -28,10 +29,12 @@ class Banner
             'email' => 'vendor@qq.com'
         ];
 
-        $validate = new Validate([
-            'name' => 'require|max:10',
-            'email' => 'email'
-        ]);
+//        $validate = new Validate([
+//            'name' => 'require|max:10',
+//            'email' => 'email'
+//        ]);
+        //改写验证器
+        $validate = new TestValidate();
 
         $result = $validate->check($data);
         var_dump($validate->getError());
