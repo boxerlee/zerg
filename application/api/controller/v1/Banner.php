@@ -25,8 +25,8 @@ class Banner
         //独立验证
         //验证器是tp5官方推荐的形式
         $data = [
-            'name' => 'vendor',
-            'email' => 'vendor@qq.com'
+            'name' => 'vendorvendor',
+            'email' => 'vendorqq.com'
         ];
 
 //        $validate = new Validate([
@@ -36,7 +36,12 @@ class Banner
         //改写验证器
         $validate = new TestValidate();
 
-        $result = $validate->check($data);
+        //单独验证
+//        $result = $validate->check($data);
+//        echo $validate->getError();
+
+        //批量验证
+        $result = $validate->batch()->check($data);
         var_dump($validate->getError());
         echo $id;
 
