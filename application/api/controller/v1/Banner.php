@@ -23,29 +23,31 @@ class Banner
      */
     public function getBanner($id)
     {
-        //独立验证
-        //验证器是tp5官方推荐的形式
-        $data = [
-            'id' => $id,
-            'name' => 'vendor',
-            'email' => 'vendor@qq.com'
-        ];
+        (new IDMustBePostiveInt())->goCheck();
 
-//        $validate = new Validate([
-//            'name' => 'require|max:10',
-//            'email' => 'email'
-//        ]);
-        //改写验证器
-        $validate = new IDMustBePostiveInt();
-
-        //单独验证
-//        $result = $validate->check($data);
-//        echo $validate->getError();
-
-        //批量验证
-        $result = $validate->batch()->check($data);
-        var_dump($validate->getError());
-        echo $id;
+//        //独立验证
+//        //验证器是tp5官方推荐的形式
+//        $data = [
+//            'id' => $id,
+//            'name' => 'vendor',
+//            'email' => 'vendor@qq.com'
+//        ];
+//
+////        $validate = new Validate([
+////            'name' => 'require|max:10',
+////            'email' => 'email'
+////        ]);
+//        //改写验证器
+//        $validate = new IDMustBePostiveInt();
+//
+//        //单独验证
+////        $result = $validate->check($data);
+////        echo $validate->getError();
+//
+//        //批量验证
+//        $result = $validate->batch()->check($data);
+//        var_dump($validate->getError());
+//        echo $id;
 
     }
 }
