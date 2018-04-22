@@ -9,6 +9,7 @@
 namespace app\api\controller\v1;
 
 
+use app\api\validate\IDMustBePostiveInt;
 use app\api\validate\TestValidate;
 use think\Validate;
 
@@ -25,8 +26,9 @@ class Banner
         //独立验证
         //验证器是tp5官方推荐的形式
         $data = [
-            'name' => 'vendorvendor',
-            'email' => 'vendorqq.com'
+            'id' => $id,
+            'name' => 'vendor',
+            'email' => 'vendor@qq.com'
         ];
 
 //        $validate = new Validate([
@@ -34,7 +36,7 @@ class Banner
 //            'email' => 'email'
 //        ]);
         //改写验证器
-        $validate = new TestValidate();
+        $validate = new IDMustBePostiveInt();
 
         //单独验证
 //        $result = $validate->check($data);
