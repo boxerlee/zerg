@@ -10,8 +10,8 @@ namespace app\api\controller\v1;
 
 
 use app\api\validate\IDMustBePostiveInt;
-use app\api\validate\TestValidate;
-use think\Validate;
+use app\api\model\Banner as BannerModel;
+use think\Exception;
 
 class Banner
 {
@@ -25,29 +25,21 @@ class Banner
     {
         (new IDMustBePostiveInt())->goCheck();
 
-//        //独立验证
-//        //验证器是tp5官方推荐的形式
-//        $data = [
-//            'id' => $id,
-//            'name' => 'vendor',
-//            'email' => 'vendor@qq.com'
-//        ];
-//
-////        $validate = new Validate([
-////            'name' => 'require|max:10',
-////            'email' => 'email'
-////        ]);
-//        //改写验证器
-//        $validate = new IDMustBePostiveInt();
-//
-//        //单独验证
-////        $result = $validate->check($data);
-////        echo $validate->getError();
-//
-//        //批量验证
-//        $result = $validate->batch()->check($data);
-//        var_dump($validate->getError());
-//        echo $id;
+        try{
+            $banner = BannerModel::getBannerByID($id);
+        }
+        catch (Exception $ex){
+           $err = [
+               'error_code'=> 10001,
+               'msg' => $ex->getMessage()
+           ];
+           return json($err,400);
+        }
+
+
+        $banner = BannerModel::getBannerByID($id);
+        return $banner;
+
 
     }
 }

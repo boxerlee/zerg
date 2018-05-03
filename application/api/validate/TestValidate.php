@@ -13,6 +13,9 @@ use think\Validate;
 
 class TestValidate extends Validate
 {
+    /**
+     * @var array
+     */
     protected $rule = [
         'name' => 'require|max:10',
         'email' => 'email'
