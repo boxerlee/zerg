@@ -25,6 +25,7 @@ class Banner
     {
         (new IDMustBePostiveInt())->goCheck();
 
+        //常规固有的处理异常方式
         try{
             $banner = BannerModel::getBannerByID($id);
         }
