@@ -14,7 +14,8 @@ use think\Validate;
 class IDMustBePostiveInt extends BaseValidate
 {
     protected $rule = [
-        'id' => 'require|isPostiveInteger'
+        'id' => 'require|isPostiveInteger',
+        'num' =>'in:1,2,3'
     ];
 
     protected function isPostiveInteger($value, $rule = '', $data = '', $field = '')
