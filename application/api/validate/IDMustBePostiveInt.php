@@ -14,8 +14,7 @@ use think\Validate;
 class IDMustBePostiveInt extends BaseValidate
 {
     protected $rule = [
-        'id' => 'require|isPostiveInteger',
-        'num' =>'in:1,2,3'
+        'id' => 'require|isPostiveInteger'
     ];
 
     protected function isPostiveInteger($value, $rule = '', $data = '', $field = '')
@@ -23,10 +22,11 @@ class IDMustBePostiveInt extends BaseValidate
         //判断正整数的方法
         if (is_numeric($value) && is_int($value + 0) && ($value + 0) > 0)
         {
-           return TRUE;
+            return TRUE;
         }
-        else{
-            return $field.'必须是正整数';
+        else
+        {
+            return $field . '必须是正整数';
         }
     }
 }

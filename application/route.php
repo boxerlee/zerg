@@ -44,4 +44,4 @@ use think\Route;
 //Route::rule('hello','sample/Test/hello','GET|POST');
 
 Route::get('hello','sample/Test/hello');
-Route::get('banner/:id','api/v1.Banner/getBanner');
+Route::get('api/v1/banner/:id','api/v1.Banner/getBanner');
