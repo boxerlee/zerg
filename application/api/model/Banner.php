@@ -9,11 +9,17 @@
 namespace app\api\model;
 
 
+
 use think\Db;
 use think\Exception;
+use think\Model;
 
-class Banner
+class Banner extends Model
 {
+    public function items(){
+        return $this->hasMany('BannerItem','banner_id','id');
+    }
+
     /**
      * @param $id
      */
