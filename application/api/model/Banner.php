@@ -13,7 +13,7 @@ use think\Db;
 use think\Exception;
 use think\Model;
 
-class Banner extends Model
+class Banner extends BaseModel
 {
     //隐藏字段
     protected $hidden = ['delete_time','update_time'];

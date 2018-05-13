@@ -11,7 +11,7 @@ namespace app\api\model;
 
 use think\Model;
 
-class BannerItem extends Model
+class BannerItem extends BaseModel
 {
     //隐藏字段
     protected $hidden = ['id','img_id','banner_id','update_time','delete_time'];
