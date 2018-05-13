@@ -35,9 +35,6 @@ class Banner
             throw new BannerMissException();
         }
 
-        //config 助手函数
-        $c = config('setting.img_prefix');
-
         return json($banner);
 
     }
