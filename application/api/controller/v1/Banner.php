@@ -26,13 +26,13 @@ class Banner
     {
         // AOP 面向切面编程
         (new IDMustBePostiveInt())->goCheck();
+        $banner = BannerModel::getBannerByID($id);
+//        $banner->hidden(['update_time','delete_time']);
 
-        $banner = BannerModel::with(['items','items.img'])->find($id);
-        //        get, find, all, select
-//        $banner = BannerModel::getBannerByID($id);
 
-        if(!$banner){
-           throw new BannerMissException();
+        if (!$banner)
+        {
+            throw new BannerMissException();
         }
         return json($banner);
 
