@@ -28,12 +28,9 @@ class BaseValidate extends Validate
         {
             $e = new ParameterException([
                 'msg' => $this->error,
-
             ]);
 
             throw $e;
-
-
         }
         else
         {
@@ -41,4 +38,20 @@ class BaseValidate extends Validate
         }
 
     }
+
+
+    protected function isPostiveInteger($value, $rule = '', $data = '', $field = '')
+    {
+        //判断正整数的方法
+        if (is_numeric($value) && is_int($value + 0) && ($value + 0) > 0)
+        {
+            return TRUE;
+        }
+        else
+        {
+            return FALSE;
+//            return $field . '必须是正整数';
+        }
+    }
+
 }

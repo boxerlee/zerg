@@ -10,33 +10,7 @@
 // +----------------------------------------------------------------------
 
 
-// 配置式的路由器写法
-//return [
-//    '__pattern__' => [
-//        'name' => '\w+',
-//    ],
-//    '[hello]'     => [
-//        ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
-//        ':name' => ['index/hello', ['method' => 'post']],
-//    ],
-//
-//];
 
-
-
-//动态注册的路由器写法
-//动态注册
-//
-//路由定义采用\think\Route类的rule方法注册，通常是在应用的路由配置文件application/route.php进行注册，格式是：
-//
-//Route::rule('路由表达式','路由地址','请求类型','路由参数（数组）','变量规则（数组）');
-//例如注册如下路由规则：
-//
-//use think\Route;
-//// 注册路由到index模块的News控制器的read操作
-//Route::rule('new/:id','index/News/read');
-
-//GET,POST,DELETE,PUT,*
 
 
 use think\Route;
@@ -45,3 +19,4 @@ use think\Route;
 
 Route::get('hello','sample/Test/hello');
 Route::get('api/:version/banner/:id','api/:version.Banner/getBanner');
+Route::get('api/:version/theme','api/:version.Theme/getSimpleList');
