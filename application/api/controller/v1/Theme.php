@@ -10,6 +10,8 @@ namespace app\api\controller\v1;
 
 
 use app\api\validate\IDCollection;
+use app\api\model\Theme as ThemeModel;
+use app\lib\exception\ThemeException;
 
 class Theme
 {
@@ -20,6 +22,18 @@ class Theme
     public function getSimpleList($ids = '')
     {
         (new IDCollection())->goCheck();
-        return 'Success';
+
+        $ids = explode(',', $ids);
+        $result = ThemeModel::getThemeByIDs($ids);
+
+        if (!$result)
+        {
+            throw new ThemeException();
+        }
+
+        return json($result);
+
     }
+
+
 }

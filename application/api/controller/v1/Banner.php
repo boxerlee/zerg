@@ -31,9 +31,9 @@ class Banner
 
 
         if (!$banner)
-        {
-            throw new BannerMissException();
-        }
+    {
+        throw new BannerMissException();
+    }
 
         return json($banner);
 
