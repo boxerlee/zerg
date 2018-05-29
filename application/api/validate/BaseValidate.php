@@ -40,7 +40,8 @@ class BaseValidate extends Validate
     }
 
 
-    protected function isPostiveInteger($value, $rule = '', $data = '', $field = '')
+    protected function isPostiveInteger($value, $rule = '',
+                                        $data = '', $field = '')
     {
         //判断正整数的方法
         if (is_numeric($value) && is_int($value + 0) && ($value + 0) > 0)
@@ -51,6 +52,19 @@ class BaseValidate extends Validate
         {
             return FALSE;
 //            return $field . '必须是正整数';
+        }
+    }
+
+    protected function isNotEmptuy($value, $rule = '',
+                                   $data = '', $field = '')
+    {
+        if (empty($value))
+        {
+            return FALSE;
+        }
+        else
+        {
+            return TRUE;
         }
     }
 
